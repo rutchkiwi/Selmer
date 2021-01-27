@@ -158,7 +158,9 @@
   (is
     (= "main template foo body" (render-file "templates/my-include.html" {:foo "foo"}))))
 
-
+(deftest nested-includes
+  ; Currently fails with "java.lang.Exception: unrecognized tag: :include - did you forget to close a tag?"
+  (is (= "outermiddlehello" (render-file "templates/inheritance/nested-include-snippet.html" {}))))
 
 (deftest render-file-accepts-resource-URL
   (is
